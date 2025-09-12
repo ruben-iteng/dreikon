@@ -1,0 +1,20 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component XKB_Connectivity_DSHP02TS_S_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    # trait is_auto_generated<system="ato_part", source="easyeda:C319052", date="2025-09-09T21:11:07.247349+00:00", checksum="bf0602e543135846dc22bc73379a82eb657715083b232082e2f59be11ff5c50c">
+
+    trait is_atomic_part<manufacturer="XKB Connectivity", partnumber="DSHP02TS-S", footprint="SW-SMD_DSHP02TS-S.kicad_mod", symbol="DSHP02TS-S.kicad_sym", model="SW-SMD_DSHP02TS-S-L4.1-W5.4-H2.4-P1.27-LS8.5.step">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C319052", manufacturer="XKB Connectivity", partno="DSHP02TS-S">
+    trait has_designator_prefix<prefix="SW">
+
+    # pins
+    pin 1
+    pin 2
+    pin 4
+    pin 3

@@ -1,0 +1,170 @@
+(footprint "UMW_SN74LVC2G34DBVR_UMW:SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BR"
+    (layer "F.Cu")
+    (descr "")
+    (version 20241229)
+    (generator "faebryk")
+    (generator_version "v5")
+    (tedit "5DC5F6A4")
+    (property "Reference" "REF**"
+        (at 0 -4.95 0)
+        (layer "F.SilkS")
+        (hide no)
+        (uuid "59ef466b-7742-41ea-a695-17fa28c9fc2c")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "Value" "SOT-23-6_L2.9-W1.6-P0.95-LS2.8-BR"
+        (at 0 4.95 0)
+        (layer "F.Fab")
+        (hide no)
+        (uuid "e5722095-adce-4d7c-b3c8-5050ee9c9551")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+    )
+    (property "checksum" "0a2659269d8771d853e982d520b72b6c63eaceb6f5e032a97860715eee28ae8d"
+        (at 0 0 0)
+        (layer "User.9")
+        (hide no)
+        (uuid "86a02fba-e872-4e9f-beea-8ecf0c3f8d49")
+        (effects
+            (font
+                (size 0.125 0.125)
+                (thickness 0.01875)
+            )
+            (hide yes)
+        )
+    )
+    (attr smd)
+    (fp_line
+        (start -0.9 -1.55)
+        (end 0.9 -1.55)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "47a229a7-5b01-4238-ad9a-7d6f292290a9")
+    )
+    (fp_line
+        (start -0.9 1.55)
+        (end 0.9 1.55)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (layer "F.SilkS")
+        (uuid "dec6bba0-7037-4958-ba31-b1ecbe0c53bb")
+    )
+    (fp_circle
+        (center 1.4 1.45)
+        (end 1.43 1.45)
+        (stroke
+            (width 0.06)
+            (type solid)
+        )
+        (fill no)
+        (layer "F.Fab")
+        (uuid "8912cf2f-a0f1-43a6-ad4f-6515d659cbe8")
+    )
+    (fp_circle
+        (center 1.4 0.95)
+        (end 1.5 0.95)
+        (stroke
+            (width 0.2)
+            (type solid)
+        )
+        (fill no)
+        (layer "Cmts.User")
+        (uuid "420c24e5-0e33-4317-844e-f8c17f717e5b")
+    )
+    (fp_circle
+        (center 1.4 1.65)
+        (end 1.53 1.65)
+        (stroke
+            (width 0.25)
+            (type solid)
+        )
+        (fill no)
+        (layer "F.SilkS")
+        (uuid "560f729a-33b1-4011-ac0c-2a92afdbfb6e")
+    )
+    (fp_text user "%R"
+        (at 0 0 0)
+        (layer "F.Fab")
+        (uuid "fbe54374-e748-47f3-90d6-dd65f95a229e")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (fp_text user "${REFERENCE}"
+        (at 0 -4.95 0)
+        (layer "F.SilkS")
+        (uuid "59ef466b-7742-41ea-a695-17fa28c9fc2c")
+        (effects
+            (font
+                (size 1 1)
+                (thickness 0.15)
+            )
+        )
+        (unlocked no)
+    )
+    (pad "3" smd rect
+        (at 1.35 -0.95 0)
+        (size 1.1 0.6)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "12003f49-155b-4c83-996f-7fbbcbfb10b1")
+    )
+    (pad "2" smd rect
+        (at 1.35 0 0)
+        (size 1.1 0.6)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "8c98f2c4-45d5-4d8d-85d0-16e0546c830f")
+    )
+    (pad "1" smd rect
+        (at 1.35 0.95 0)
+        (size 1.1 0.6)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "ea9cb377-a3d9-48df-bc56-20a95a4c1874")
+    )
+    (pad "6" smd rect
+        (at -1.35 0.95 0)
+        (size 1.1 0.6)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "901c6d01-d9ba-440e-ae77-8f00f81d8438")
+    )
+    (pad "5" smd rect
+        (at -1.35 0 0)
+        (size 1.1 0.6)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "b5c1bbfa-b6c7-47a4-b512-6615152842ff")
+    )
+    (pad "4" smd rect
+        (at -1.35 -0.95 0)
+        (size 1.1 0.6)
+        (layers "F.Cu" "F.Paste" "F.Mask")
+        (uuid "3b6295c0-cecd-4816-8ace-886f56397ad2")
+    )
+    (model "${KIPRJMOD}/../../parts/UMW_SN74LVC2G34DBVR_UMW/SOT-23-6_L2.9-W1.6-H1.5-LS2.8-P0.95.step"
+        (offset
+            (xyz 0 0 0)
+        )
+        (scale
+            (xyz 1 1 1)
+        )
+        (rotate
+            (xyz 0 0 180)
+        )
+    )
+)

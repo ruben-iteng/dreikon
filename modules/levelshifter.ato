@@ -1,0 +1,45 @@
+#pragma experiment("FOR_LOOP")
+import ElectricLogic
+import ElectricPower
+import Electrical
+import Capacitor
+
+from "parts/UMW_SN74LVC2G34DBVR_UMW/UMW_SN74LVC2G34DBVR_UMW.ato" import UMW_SN74LVC2G34DBVR_UMW_package
+
+module SN74LVC2G34DBVRUMW:
+    """
+    UMWYoutai Semiconductor Co., Ltd.
+    74LVC2G34 Dual buffer.
+    """
+    # external interfaces
+    power = new ElectricPower
+    logic_in = new ElectricLogic[2]
+    logic_out = new ElectricLogic[2]
+
+    # components
+    package = new UMW_SN74LVC2G34DBVR_UMW_package
+    decoupling_capacitor = new Capacitor
+
+    # parameters
+    decoupling_capacitor.capacitance = 100nF +/-20%
+    decoupling_capacitor.package = "0402"
+
+    # connections
+    power ~ decoupling_capacitor.power
+
+    # connections to package
+    power.hv ~ package.VCC
+    power.lv ~ package.GND
+    logic_in[0].line ~ package.INA1
+    logic_in[1].line ~ package.INA2
+    logic_out[0].line ~ package.Y1
+    logic_out[1].line ~ package.Y2
+
+    # constraints
+    power.required = True
+
+    power.voltage = 1.65V to 5.5V
+    for l_i in logic_in:
+        l_i.reference.voltage = 1.65V to 5.5V
+    for l_o in logic_out:
+        l_o.reference.voltage = power.voltage

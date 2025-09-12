@@ -1,0 +1,60 @@
+#pragma experiment("BRIDGE_CONNECT")
+#pragma experiment("FOR_LOOP")
+import ElectricPower
+import Resistor
+
+from "atopile/raspberry-rp2040/raspberry-rp2040.ato" import Raspberry_Pi_RP2040
+from "atopile/usb-connectors/usb-connectors.ato" import USB2_0TypeCHorizontalConnector
+from "atopile/logos/logos.ato" import atopile_logo_4x4mm
+from "ruben-iteng/ldos/ldos.ato" import LDO_5V_to_3V3
+
+
+from "modules/switches.ato" import KailhLowProfileSwitch_driver
+from "modules/switches.ato" import SPSTx4DipSwitch
+from "modules/leds.ato" import WorldsemiWS2812B4020Side
+from "modules/levelshifter.ato" import SN74LVC2G34DBVRUMW
+
+module App:
+    """
+    Main application for the DREIKON keyboard
+    """
+    # --- Components ---
+    switches = new KailhLowProfileSwitch_driver[3]
+    mcu = new Raspberry_Pi_RP2040
+    usb_connector = new USB2_0TypeCHorizontalConnector
+    ldo = new LDO_5V_to_3V3
+    led_level_shifter = new SN74LVC2G34DBVRUMW
+    side_leds = new WorldsemiWS2812B4020Side[2]
+    config_switch = new SPSTx4DipSwitch
+    atopile_logo = new atopile_logo_4x4mm
+
+    # --- Internal interfaces ---
+    _power_3v3 = new ElectricPower
+    _power_5v = new ElectricPower
+
+    # --- Connections ---
+    # power
+    usb_connector.usb.usb_if.buspower ~ _power_5v
+    _power_5v ~ ldo.power_in
+    ldo.power_out ~ _power_3v3
+    _power_3v3 ~ mcu.power
+    _power_5v ~ led_level_shifter.power
+    for led in side_leds:
+        _power_5v ~ led.power
+    for switch in switches:
+        _power_5v ~ switch.led_power
+
+    # usb
+    usb_connector.usb ~ mcu.usb
+
+    # led logic
+    mcu.gpio[6] ~ led_level_shifter.logic_in[1]
+    led_level_shifter.logic_out[1] ~> switches[2] ~> switches[0] ~> switches[1] ~> side_leds[1] ~> side_leds[0]
+
+    # switches
+    mcu.gpio[10] ~ switches[0].output
+    mcu.gpio[18] ~ switches[1].output
+    mcu.gpio[11] ~ switches[2].output
+
+    mcu.gpio[28] ~ config_switch.outputs[0]
+    mcu.gpio[27] ~ config_switch.outputs[1]
