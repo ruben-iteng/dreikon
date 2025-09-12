@@ -194,3 +194,10 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+
+# LLM and AI
+.mcp.json
+CLAUDE.md
+.cursor/
+.windsurf/
+.github/instructions/ato.instructions.md

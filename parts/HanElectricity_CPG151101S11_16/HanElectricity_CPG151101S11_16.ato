@@ -1,0 +1,18 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component HanElectricity_CPG151101S11_16_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    # trait is_auto_generated<system="ato_part", source="easyeda:C41430893", date="2025-09-06T16:28:35.076846+00:00", checksum="4503d974a2a453c3f88100bd27c7a54da7b43f3b50aa87d757da67c780be0981">
+
+    trait is_atomic_part<manufacturer="HanElectricity", partnumber="CPG151101S11-16", footprint="SMD_KEYBOARD-SW.kicad_mod", symbol="CPG151101S11-16_C41430893.kicad_sym", model="2.STEP">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C41430893", manufacturer="HanElectricity", partno="CPG151101S11-16">
+    trait has_designator_prefix<prefix="U">
+
+    # pins
+    pin 1
+    pin 2

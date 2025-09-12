@@ -1,0 +1,69 @@
+#pragma experiment("BRIDGE_CONNECT")
+#pragma experiment("TRAITS")
+import Electrical
+import Capacitor
+import ElectricLogic
+import ElectricPower
+import can_bridge_by_name
+import has_single_electric_reference_shared
+
+from "parts/KAILH_CPG135001S30/KAILH_CPG135001S30.ato" import KAILH_CPG135001S30_package
+from "parts/XKB_Connectivity_DSHP02TS_S/XKB_Connectivity_DSHP02TS_S.ato" import XKB_Connectivity_DSHP02TS_S_package
+
+from "modules/leds.ato" import WorldsemiWS2812BMiniTopDown
+
+module KailhLowProfileSwitchMount:
+    """
+    Kailh low profile switch mount
+    """
+    package = new KAILH_CPG135001S30_package
+
+    # --- External interfaces ---
+    contact = new Electrical[2]
+
+    # --- Connections ---
+    contact[0] ~ package.1
+    contact[1] ~ package.2
+
+module KailhLowProfileSwitch_driver:
+    """
+    Kailh low profile switch (normal or low profile) mount
+    - To be used with ~25mm round keycaps
+    - Including LED and RC filter
+    """
+    # --- External interfaces ---
+    output = new ElectricLogic
+    led_power = new ElectricPower
+    led_data_in = new ElectricLogic
+    led_data_out = new ElectricLogic
+
+    # --- Components ---
+    switch = new KailhLowProfileSwitchMount
+    led = new WorldsemiWS2812BMiniTopDown
+
+    # --- Connections ---
+    trait can_bridge_by_name<input_name="led_data_in", output_name="led_data_out">
+    switch.contact[0] ~ output.line
+    switch.contact[1] ~ output.reference.lv
+    led_power ~ led.power
+    led_data_in ~ led.data_in
+    led_data_out ~ led.data_out
+
+module SPSTx4DipSwitch:
+    """
+    4x SPST SMD DIP switch
+    """
+    package = new XKB_Connectivity_DSHP02TS_S_package
+
+    # --- External interfaces ---
+    outputs = new ElectricLogic[2]
+
+    # --- Connections ---
+    trait has_single_electric_reference_shared
+
+    # --- Package connections ---
+    outputs[0].line ~ package.1
+    outputs[1].line ~ package.2
+
+    outputs[0].reference.lv ~ package.3
+    outputs[1].reference.lv ~ package.4

@@ -1,0 +1,20 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component Worldsemi_WS2812B_MINI_V3J_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    trait is_auto_generated<system="ato_part", source="easyeda:C22371519", date="2025-09-09T20:17:31.944188+00:00", checksum="c899abf291008f8cad27c7085cb35bcba58031b96b2172fdcd402de9c4fc6bf1">
+
+    trait is_atomic_part<manufacturer="Worldsemi", partnumber="WS2812B-MINI-V3J", footprint="LED-SMD_4P-L3.5-W3.5-P1.80-LS6.2_WS2812B-MINI-V3J.kicad_mod", symbol="WS2812B-MINI-V3J.kicad_sym", model="LED-SMD_4P-L3.5-W3.5-P1.80-LS6.2_WS2812B-MINI-V3J.STEP">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C22371519", manufacturer="Worldsemi", partno="WS2812B-MINI-V3J">
+    trait has_designator_prefix<prefix="U">
+
+    # pins
+    signal DIN ~ pin 4
+    signal DOUT ~ pin 2
+    signal GND ~ pin 3
+    signal VDD ~ pin 1

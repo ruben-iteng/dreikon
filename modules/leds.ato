@@ -1,0 +1,63 @@
+#pragma experiment("BRIDGE_CONNECT")
+#pragma experiment("FOR_LOOP")
+#pragma experiment("TRAITS")
+import can_bridge_by_name
+import ElectricPower
+import ElectricLogic
+import Capacitor
+
+from "parts/Worldsemi_WS2812B_4020/Worldsemi_WS2812B_4020.ato" import Worldsemi_WS2812B_4020_package
+from "parts/Worldsemi_WS2812B_MINI_V3J/Worldsemi_WS2812B_MINI_V3J.ato" import Worldsemi_WS2812B_MINI_V3J_package
+
+module WorldsemiWS2812B4020Side:
+    """
+    WS2812B RGB LED, side mounted
+    """
+    package = new Worldsemi_WS2812B_4020_package
+
+    # --- External interfaces ---
+    power = new ElectricPower
+    data_in = new ElectricLogic
+    data_out = new ElectricLogic
+
+    # --- Components ---
+    decoupling_capacitor = new Capacitor
+    decoupling_capacitor.package = "0402"
+    decoupling_capacitor.capacitance = 100nF +/- 20%
+
+    # --- Connections ---
+    trait can_bridge_by_name<input_name="data_in", output_name="data_out">
+    power.hv ~> decoupling_capacitor ~> power.lv
+
+    # --- Package connections ---
+    power.hv ~ package.VDD
+    power.lv ~ package.VSS
+    data_in.line ~ package.DIN
+    data_out.line ~ package.DOUT
+
+
+module WorldsemiWS2812BMiniTopDown:
+    """
+    WS2812B RGB LED, upside down mounted
+    """
+    package = new Worldsemi_WS2812B_MINI_V3J_package
+
+    # --- External interfaces ---
+    power = new ElectricPower
+    data_in = new ElectricLogic
+    data_out = new ElectricLogic
+
+    # --- Components ---
+    decoupling_capacitor = new Capacitor
+    decoupling_capacitor.package = "0402"
+    decoupling_capacitor.capacitance = 100nF +/- 20%
+
+    # --- Connections ---
+    trait can_bridge_by_name<input_name="data_in", output_name="data_out">
+    power.hv ~> decoupling_capacitor ~> power.lv
+
+    # --- Package connections ---
+    power.hv ~ package.VDD
+    power.lv ~ package.GND
+    data_in.line ~ package.DIN
+    data_out.line ~ package.DOUT

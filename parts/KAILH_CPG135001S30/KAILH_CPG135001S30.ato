@@ -1,0 +1,18 @@
+#pragma experiment("TRAITS")
+import has_designator_prefix
+import has_part_picked
+import is_atomic_part
+import is_auto_generated
+
+component KAILH_CPG135001S30_package:
+    # This trait marks this file as auto-generated
+    # If you want to manually change it, remove the trait
+    # trait is_auto_generated<system="ato_part", source="easyeda:C5333465", date="2025-09-06T21:29:44.029835+00:00", checksum="6fe5236d0a7731a70d2fc70feaaafcdcaf387d4e62add2924ba251b77ac20496">
+
+    trait is_atomic_part<manufacturer="KAILH", partnumber="CPG135001S30", footprint="CONN-SMD_HOTPLUGPAKAGE__C9900010116.kicad_mod", symbol="CPG135001S30.kicad_sym", model="CONN-SMD_HOTPLUGPAKAGE__C9900010116.STEP">
+    trait has_part_picked::by_supplier<supplier_id="lcsc", supplier_partno="C5333465", manufacturer="KAILH", partno="CPG135001S30">
+    trait has_designator_prefix<prefix="U">
+
+    # pins
+    pin 1
+    pin 2
