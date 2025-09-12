@@ -1,5 +1,19 @@
+<div align="center">
+
 # DREIKON
 
-Tripple button keyboard
+<img height=300 title="DREIKON PCBA Top bottom" src="./build/builds/default/default.pcba.png"/>
+</div>
 
-Created by Ruben Baldewsing <94007802+ruben-iteng@users.noreply.github.com>
+## About
+
+A triple button mechanical keyboard for all your macro needs.
+
+## Features
+
+- 3x hotswap sockets for Kailh low profile switches (CHOC v2)
+- 3x RGB addressable LEDs for switch underglow
+- 2x RGB addressable LEDs for front color bar
+- USB Type-C
+- 2x DIP switches for configuration
+- RP2040 microcontroller

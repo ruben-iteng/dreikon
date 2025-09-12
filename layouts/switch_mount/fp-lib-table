@@ -8,13 +8,6 @@
         (descr "atopile: part lib: FH_0402CG150J500NT")
     )
     (lib
-        (name "GATERON_KS_2P02B01_02")
-        (type "KiCad")
-        (uri "${KIPRJMOD}/../../parts/GATERON_KS_2P02B01_02")
-        (options "")
-        (descr "atopile: part lib: GATERON_KS_2P02B01_02")
-    )
-    (lib
         (name "HanElectricity_CPG151101S11_16")
         (type "KiCad")
         (uri "${KIPRJMOD}/../../parts/HanElectricity_CPG151101S11_16")
@@ -27,20 +20,6 @@
         (uri "${KIPRJMOD}/../../parts/KAILH_CPG135001S30")
         (options "")
         (descr "atopile: part lib: KAILH_CPG135001S30")
-    )
-    (lib
-        (name "OPSCO_Optoelectronics_SK6805SIDE_FRGBW_BW_P6")
-        (type "KiCad")
-        (uri "${KIPRJMOD}/../../parts/OPSCO_Optoelectronics_SK6805SIDE_FRGBW_BW_P6")
-        (options "")
-        (descr "atopile: part lib: OPSCO_Optoelectronics_SK6805SIDE_FRGBW_BW_P6")
-    )
-    (lib
-        (name "OPSCO_Optoelectronics_SK6812MINI_EA")
-        (type "KiCad")
-        (uri "${KIPRJMOD}/../../parts/OPSCO_Optoelectronics_SK6812MINI_EA")
-        (options "")
-        (descr "atopile: part lib: OPSCO_Optoelectronics_SK6812MINI_EA")
     )
     (lib
         (name "Samsung_Electro_Mechanics_CL05A225MQ5NSNC")
