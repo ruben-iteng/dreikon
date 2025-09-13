@@ -30,8 +30,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - run: ato sync
-      - run: ato build --frozen
+      - name: Setup Atople
+        uses: atopile/setup-atopile@main
+
+      - name: Sync dependencies
+        run: ato sync
+
+      - name: Build project
+        run: ato build --frozen
         id: build
         continue-on-error: true
 
