@@ -48,13 +48,13 @@ module App:
     usb_connector.usb ~ mcu.usb
 
     # led logic
-    mcu.gpio[6] ~ led_level_shifter.logic_in[1]
-    led_level_shifter.logic_out[1] ~> switches[2] ~> switches[0] ~> switches[1] ~> side_leds[1] ~> side_leds[0]
+    mcu.gpio[5] ~ led_level_shifter.logic_in[1]
+    led_level_shifter.logic_out[1] ~> switches[0] ~> switches[1] ~> switches[2] ~> side_leds[0] ~> side_leds[1]
 
     # switches
-    mcu.gpio[10] ~ switches[0].output
-    mcu.gpio[18] ~ switches[1].output
+    mcu.gpio[4] ~ switches[0].output
+    mcu.gpio[17] ~ switches[1].output
     mcu.gpio[11] ~ switches[2].output
 
-    mcu.gpio[28] ~ config_switch.outputs[0]
-    mcu.gpio[27] ~ config_switch.outputs[1]
+    mcu.gpio[7] ~ config_switch.outputs[0]
+    mcu.gpio[6] ~ config_switch.outputs[1]
