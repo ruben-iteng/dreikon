@@ -1,17 +1,43 @@
+# This workflow is used to build the hardware designed in atopile
+# It will create an artifact containing all the build files
+# It is triggered by push, pull_request, or manual workflow_dispatch
 
-on: [push, pull_request]
+name: Build hardware
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*.ato"
+      - "ato.yaml"
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - main
+    paths:
+      - "**/*.ato"
+      - "ato.yaml"
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Skip all jobs if PR is in draft
+    if: github.event.pull_request.draft == false
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-      - uses: atopile/setup-atopile@main
+      - name: Setup Atople
+        uses: atopile/setup-atopile@main
 
-      - run: ato sync
-      - run: ato build --frozen
+      - name: Sync dependencies
+        run: ato sync
+
+      - name: Build project
+        run: ato build --frozen
         id: build
         continue-on-error: true
 
