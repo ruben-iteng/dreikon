@@ -17,3 +17,7 @@ A triple button mechanical keyboard for all your macro needs.
 - USB Type-C
 - 2x DIP switches for configuration
 - RP2040 microcontroller
+
+## Firmware
+
+See the [firmware](./firmware/README.md) folder for info on setting up and using the firmware.
